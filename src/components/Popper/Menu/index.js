@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const dedaultFn = () => {};
 
-function Menu({ children, items = [], onChange = dedaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = dedaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -38,6 +38,7 @@ function Menu({ children, items = [], onChange = dedaultFn }) {
         <Tippy
             delay={[0, 700]}
             offset={[12, 8]}
+            hideOnClick={hideOnClick}
             interactive
             placement="bottom-end"
             render={(attrs) => (
